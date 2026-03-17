@@ -1,14 +1,29 @@
 {
-  "express-interest": {
-    "title": "Express Interest",
-    "description": "Form to submit expression of interest to App Builder endpoint",
-    "properties": {
-      "baseurl": {
-        "title": "Base URL",
-        "description": "App Builder runtime origin with no trailing slash (e.g. https://xxx.dev.runtime.adobe.io)",
-        "type": "string",
-        "format": "uri"
+  "definitions": [
+    {
+      "title": "Express Interest",
+      "id": "express-interest",
+      "model": "express-interest",
+      "plugins": {
+        "da": {
+          "type": "key-value-block"
+        }
       }
     }
-  }
+  ],
+  "models": [
+    {
+      "id": "express-interest",
+      "fields": [
+        {
+          "component": "text",
+          "name": "baseurl",
+          "label": "Base URL",
+          "description": "App Builder runtime origin with no trailing slash (e.g. https://xxx.dev.runtime.adobe.io)",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "filters": []
 }
