@@ -1,0 +1,46 @@
+---
+description: Adobe Commerce Drop-in SDK patterns, design tokens, and utilities. Apply when building or customizing drop-in components.
+globs: "**/*.{js,ts,tsx}"
+alwaysApply: false
+---
+
+# Adobe Commerce Drop-in SDK
+
+## SDK Foundation
+
+- **@dropins/tools** (~1.7.0): GraphQL client, event bus, initializers, UI components
+- Use design tokens from SDK: colors, typography, spacing, shapes, grid
+- Reference: https://experienceleague.adobe.com/developer/commerce/storefront/sdk/
+
+## Design Tokens
+
+Use CSS variables for consistency:
+```css
+var(--spacing-small)   /* 16px */
+var(--spacing-medium)  /* 24px */
+var(--spacing-large)   /* 64px */
+var(--color-brand-500)
+var(--color-neutral-100)
+var(--type-body-1-default-font)
+```
+
+## SDK Utilities
+
+- `classList` - CSS class management
+- `debounce` - Limit function invocation frequency
+- `deepmerge` - Deep object merging
+- `getCookie` - Cookie value retrieval
+- `getFormErrors` / `getFormValues` - Form handling
+- `getPathValue` - Object path value extraction
+
+## Event Bus
+
+```javascript
+import { events } from '@dropins/tools/event-bus.js';
+events.on('event/name', handler);
+events.emit('event/name', payload);
+```
+
+## GraphQL
+
+Use `fetchGraphQl` from `@dropins/tools/fetch-graphql.js` for Commerce API calls. Configure endpoint via `setEndpoint()` and headers via `setFetchGraphQlHeader()`.

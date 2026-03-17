@@ -1,0 +1,30 @@
+---
+description: Adobe Commerce ACCS App Builder extension context. Apply when building custom drop-ins for App Builder.
+globs: "**/*.{js,ts,json}"
+alwaysApply: false
+---
+
+# ACCS App Builder Drop-in
+
+## Context
+
+This project is a **custom drop-in** for Adobe Commerce as a Cloud Service (ACCS) App Builder extension.
+
+## Requirements
+
+- Target: Adobe Commerce as a Cloud Service (SaaS)
+- License: Adobe Commerce Drop-in License Agreement (ACCS and Adobe Commerce Optimizer only for v3.x)
+- Use official tech stack, best practices, and design patterns from Adobe components
+
+## Compatibility
+
+- Adobe Commerce 2.4.7+ (Storefront Compatibility Package 4.7.x)
+- @dropins/tools@~1.7.0
+- Node 22 (per .nvmrc)
+
+## Best Practices
+
+- Follow B2C/B2B drop-in patterns for consistency
+- Use SDK components and design tokens
+- Integrate with event bus for cross-drop-in communication
+- Support Universal Editor and Document Authoring when applicable

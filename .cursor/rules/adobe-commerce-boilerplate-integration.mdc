@@ -1,0 +1,38 @@
+---
+description: Adobe Commerce Boilerplate integration. Apply when integrating drop-ins with Edge Delivery Services blocks.
+globs: "blocks/**/*.{js,css}"
+alwaysApply: false
+---
+
+# Boilerplate Integration
+
+## Block Structure
+
+- `blocks/` - Commerce & content blocks
+- `scripts/initializers/` - Drop-in initialization
+- `scripts/commerce.js` - Commerce utilities
+
+## Block Decoration Pattern
+
+```javascript
+export default async function decorate(block) {
+  const { render } = await import('@dropins/your-dropin/render.js');
+  const Container = (await import('@dropins/your-dropin/containers/YourContainer.js')).default;
+  const container = document.createElement('div');
+  block.appendChild(container);
+  await render.render(Container, { /* props */ })(container);
+}
+```
+
+## DOM Creation
+
+- **Multiple elements**: `document.createRange().createContextualFragment(\`<div>...</div>\`)`
+- **Single element**: `document.createElement('div')`
+
+## Initializers
+
+Drop-ins require providers in `scripts/initializers/`. Use `initializeDropin()` and `initializers.mountImmediately()`.
+
+## Import Maps
+
+Drop-ins loaded via import maps in `head.html`. Add your drop-in under `imports`.

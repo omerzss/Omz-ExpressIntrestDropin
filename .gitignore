@@ -1,0 +1,13 @@
+node_modules
+coverage
+/dist
+/*.log
+.DS_Store
+.env
+.idea
+
+# Build artifacts (copied to root by build:copy)
+/render.js
+/api.js
+/containers
+/chunks

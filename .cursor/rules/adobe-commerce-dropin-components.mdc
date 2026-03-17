@@ -1,0 +1,36 @@
+---
+description: Adobe Commerce SDK component usage. Apply when building UI for drop-ins.
+globs: "**/*.{js,ts,tsx,css}"
+alwaysApply: false
+---
+
+# Adobe Commerce SDK Components
+
+Use SDK components from `@dropins/tools/components.js` for consistent UI:
+
+## Core Components
+
+- **Button**, **ActionButton**, **ActionButtonGroup** - Actions
+- **Input**, **InputDate**, **InputFile**, **InputPassword**, **TextArea** - Form inputs
+- **Field**, **Checkbox**, **RadioButton**, **Picker** - Form fields
+- **Card**, **Modal**, **Accordion** - Containment
+- **Price**, **PriceRange** - Commerce pricing
+- **ProductItemCard**, **CartItem**, **CartList** - Commerce-specific
+- **Image**, **Icon** - Media
+- **ProgressSpinner**, **Skeleton** - Loading states
+- **InlineAlert**, **AlertBanner** - Feedback
+
+## Usage Pattern
+
+```javascript
+import { Button, Input, Field } from '@dropins/tools/components.js';
+import { render as UI } from '@dropins/tools/render.js';
+
+UI.render(Button, { variant: 'primary', children: 'Submit' })(container);
+```
+
+## Styling
+
+- Use `data-dropin="sdk"` for SDK styles
+- Clone SDK styles into shadow DOM when needed: `sdkStyle.cloneNode(true)`
+- Follow SDK design overview: colors, typography, spacing, shapes, grid

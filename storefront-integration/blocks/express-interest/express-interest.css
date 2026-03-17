@@ -1,0 +1,8 @@
+.express-interest-container {
+  margin: var(--spacing-large, 1.5rem) 0;
+}
+
+.express-interest-error {
+  color: var(--color-error, #c00);
+  font: var(--type-details-caption-2-font);
+}

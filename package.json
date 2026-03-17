@@ -1,0 +1,39 @@
+{
+  "private": true,
+  "name": "@dropins/express-interest",
+  "version": "1.0.0",
+  "license": "MIT",
+  "engines": {
+    "node": "^20.0.0 || ^22.0.0"
+  },
+  "files": [
+    "*"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "dev": "concurrently 'npm run storybook' 'npm run serve'",
+    "storybook": "elsie storybook",
+    "serve": "concurrently 'elsie serve' 'wait-on tcp:${PORT:=3002} && alive-server ./examples/html-host --port=3000 --watch=../../dist/reload'",
+    "lint": "elsie lint --max-warnings=0",
+    "test": "elsie test",
+    "build": "elsie build && npm run build:copy",
+    "build:copy": "node -e \"const fs=require('fs');const p='dist';['render.js','api.js'].forEach(f=>fs.copyFileSync(p+'/'+f,f));fs.cpSync(p+'/containers','containers',{recursive:true});fs.cpSync(p+'/chunks','chunks',{recursive:true});\"",
+    "prepublishOnly": "npm run build",
+    "analyze": "ANALYZE=true elsie build"
+  },
+  "dependencies": {
+    "@adobe-commerce/elsie": "~1.6.0",
+    "@adobe-commerce/event-bus": "~1.0.0",
+    "@adobe-commerce/fetch-graphql": "~1.2.3",
+    "@adobe-commerce/storefront-design": "~1.0.0",
+    "@dropins/build-tools": "~1.0.1",
+    "@dropins/tools": "~1.6.0",
+    "preact": "~10.22.1"
+  },
+  "devDependencies": {
+    "alive-server": "^1.3.0",
+    "concurrently": "^9.2.0",
+    "jest": "^30.0.3",
+    "wait-on": "^8.0.3"
+  }
+}

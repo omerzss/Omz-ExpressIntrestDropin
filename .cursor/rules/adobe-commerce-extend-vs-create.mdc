@@ -1,0 +1,26 @@
+---
+description: Decision guide for extending vs creating Adobe Commerce drop-ins.
+alwaysApply: true
+---
+
+# Extend vs Create Drop-ins
+
+## Extend When
+
+- Adding features to existing drop-ins (Cart, Checkout, PDP, etc.)
+- Use **slots** to inject custom UI into containers
+- Use **events** to react to drop-in lifecycle
+- Extend GraphQL fragments via `overrideGQLOperations` in build.mjs
+- Add custom data via model transformers in initializers
+
+## Create When
+
+- Building entirely new commerce functionality not covered by B2C/B2B drop-ins
+- Use **dropin-template**: https://github.com/adobe-commerce/dropin-template
+- Follow Elsie CLI: `npx elsie generate config|component|container|api`
+- Structure: `src/{api,components,containers,render}/`
+
+## Key References
+
+- Extending: https://experienceleague.adobe.com/developer/commerce/storefront/dropins/all/extending/
+- Creating: https://experienceleague.adobe.com/developer/commerce/storefront/dropins/all/creating/
